@@ -1,0 +1,167 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--  <meta charset="UTF-8" />-->
+<!--  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>-->
+<!--  <title>🐦 Bird Recognition</title>-->
+<!--  <style>-->
+<!--    body {-->
+<!--      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;-->
+<!--      background: linear-gradient(to right, #e0f7fa, #ffffff);-->
+<!--      padding: 30px;-->
+<!--      color: #333;-->
+<!--    }-->
+
+<!--    .container {-->
+<!--      max-width: 800px;-->
+<!--      margin: 0 auto;-->
+<!--      background: #fff;-->
+<!--      padding: 30px;-->
+<!--      border-radius: 20px;-->
+<!--      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);-->
+<!--    }-->
+
+<!--    h1 {-->
+<!--      text-align: center;-->
+<!--      color: #00796b;-->
+<!--      font-size: 2.5rem;-->
+<!--    }-->
+
+<!--    form {-->
+<!--      display: flex;-->
+<!--      flex-direction: column;-->
+<!--      margin: 20px 0;-->
+<!--      padding: 20px;-->
+<!--      background: #f0f0f0;-->
+<!--      border-radius: 12px;-->
+<!--    }-->
+
+<!--    form h3 {-->
+<!--      margin-bottom: 10px;-->
+<!--      color: #00695c;-->
+<!--    }-->
+
+<!--    input[type="file"] {-->
+<!--      margin-bottom: 15px;-->
+<!--      padding: 10px;-->
+<!--      border-radius: 8px;-->
+<!--      background: #fff;-->
+<!--      border: 1px solid #ccc;-->
+<!--    }-->
+
+<!--    button {-->
+<!--      background: #00796b;-->
+<!--      color: white;-->
+<!--      padding: 10px 20px;-->
+<!--      font-size: 1rem;-->
+<!--      border: none;-->
+<!--      border-radius: 10px;-->
+<!--      cursor: pointer;-->
+<!--      transition: background 0.3s ease;-->
+<!--    }-->
+
+<!--    button:hover {-->
+<!--      background: #004d40;-->
+<!--    }-->
+
+<!--    .result {-->
+<!--      margin-top: 30px;-->
+<!--      padding: 20px;-->
+<!--      background: #e8f5e9;-->
+<!--      border-radius: 15px;-->
+<!--    }-->
+
+<!--    .result h2 {-->
+<!--      color: #2e7d32;-->
+<!--    }-->
+
+<!--    .result img {-->
+<!--      max-width: 100%;-->
+<!--      height: auto;-->
+<!--      border-radius: 12px;-->
+<!--      margin-top: 10px;-->
+<!--    }-->
+
+<!--    .audio-player {-->
+<!--      margin-top: 10px;-->
+<!--    }-->
+
+<!--    .info {-->
+<!--      white-space: pre-wrap;-->
+<!--      margin-top: 15px;-->
+<!--      line-height: 1.5;-->
+<!--      font-size: 1rem;-->
+<!--      background: #f1f8e9;-->
+<!--      padding: 15px;-->
+<!--      border-radius: 10px;-->
+<!--    }-->
+
+<!--    @media (max-width: 600px) {-->
+<!--      h1 {-->
+<!--        font-size: 2rem;-->
+<!--      }-->
+
+<!--      button {-->
+<!--        font-size: 0.9rem;-->
+<!--        padding: 8px 16px;-->
+<!--      }-->
+<!--    }-->
+<!--  </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--  <div class="container">-->
+<!--    <h1>🐦 Bird Recognition</h1>-->
+
+<!--    <form method="POST" enctype="multipart/form-data">-->
+<!--      <h3>Upload an Image</h3>-->
+<!--      <input type="file" name="image" accept="image/*" />-->
+<!--      <button type="submit">Predict from Image</button>-->
+<!--    </form>-->
+
+<!--    <form method="POST" enctype="multipart/form-data">-->
+<!--      <h3>Upload an Audio File</h3>-->
+<!--      <input type="file" name="audio" accept="audio/*" />-->
+<!--      <button type="submit">Predict from Audio</button>-->
+<!--    </form>-->
+
+<!--    {% if prediction %}-->
+<!--    <div class="result">-->
+<!--      <h2>Prediction: {{ prediction }}</h2>-->
+
+<!--      {% if is_image %}-->
+<!--        <h4>Uploaded Image:</h4>-->
+<!--        <img src="{{ file_url }}" alt="Uploaded Image" />-->
+<!--      {% else %}-->
+<!--        <h4>Uploaded Audio:</h4>-->
+<!--        <audio class="audio-player" controls>-->
+<!--          <source src="{{ file_url }}" type="audio/wav" />-->
+<!--          Your browser does not support the audio element.-->
+<!--        </audio>-->
+<!--      {% endif %}-->
+
+<!--      <h4>📸 Bird Image from Google:</h4>-->
+<!--      {% if image_url %}-->
+<!--        <img src="{{ image_url }}" alt="Bird Image from Google" />-->
+<!--      {% else %}-->
+<!--        <p>No image found.</p>-->
+<!--      {% endif %}-->
+
+<!--      <h4>ℹ️ Bird Info:</h4>-->
+<!--      <div class="info">{{ info }}</div>-->
+<!--    </div>-->
+<!--    {% endif %}-->
+<!--  </div>-->
+<!--</body>-->
+<!--</html>-->
+
+
+{% extends "base.html" %}
+{% block title %}Home - Bird Recognition{% endblock %}
+{% block content %}
+<div class="text-center">
+  <h1 class="display-5">Welcome to Bird Recognition</h1>
+  <p class="lead">Identify birds using images or sounds!</p>
+  <a href="{{ url_for('upload_image') }}" class="btn btn-success m-2">Predict from Image</a>
+  <a href="{{ url_for('upload_audio') }}" class="btn btn-warning m-2">Predict from Audio</a>
+</div>
+{% endblock %}

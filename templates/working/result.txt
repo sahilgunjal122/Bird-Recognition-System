@@ -1,0 +1,73 @@
+<!--{% extends "base.html" %}-->
+
+<!--{% block title %}Prediction Result - Pakshi{% endblock %}-->
+
+<!--{% block content %}-->
+<!--<div class="card p-4 shadow rounded-4 mb-5">-->
+<!--  <h2 class="text-center mb-4"><i class="bi bi-check-circle-fill text-success"></i> Prediction Result</h2>-->
+
+<!--  <h4>Top Prediction: <span class="text-success">{{ top_prediction }}</span></h4>-->
+
+<!--  {% if is_image %}-->
+<!--    <h5 class="mt-4"><i class="bi bi-image"></i> Uploaded Image</h5>-->
+<!--    <img src="{{ file_url }}" alt="Uploaded Image" class="img-fluid rounded">-->
+<!--  {% else %}-->
+<!--    <h5 class="mt-4"><i class="bi bi-soundwave"></i> Uploaded Audio</h5>-->
+<!--    <audio class="w-100" controls>-->
+<!--      <source src="{{ file_url }}" type="audio/wav">-->
+<!--      Your browser does not support the audio element.-->
+<!--    </audio>-->
+<!--  {% endif %}-->
+
+<!--  <h5 class="mt-4"><i class="bi bi-camera"></i> Bird Image from Google</h5>-->
+<!--  {% if image_url %}-->
+<!--    <img src="{{ image_url }}" alt="Bird Image" class="img-fluid rounded">-->
+<!--  {% else %}-->
+<!--    <p class="text-muted">No image found for this species.</p>-->
+<!--  {% endif %}-->
+
+<!--  <h5 class="mt-4"><i class="bi bi-info-circle"></i> Bird Info</h5>-->
+<!--  <p style="white-space: pre-wrap;">{{ info or 'No additional info available.' }}</p>-->
+
+<!--  &lt;!&ndash; Bar Chart &ndash;&gt;-->
+<!--  <h5 class="mt-5"><i class="bi bi-bar-chart-fill"></i> Top 5 Predictions</h5>-->
+<!--  <canvas id="predictionChart" height="300"></canvas>-->
+
+<!--  <div class="text-center mt-4">-->
+<!--    <a href="{{ url_for('index') }}" class="btn btn-success rounded-pill px-4 py-2">-->
+<!--      <i class="bi bi-arrow-left-circle"></i> Back to Home-->
+<!--    </a>-->
+<!--  </div>-->
+<!--</div>-->
+
+<!--&lt;!&ndash; Chart.js &ndash;&gt;-->
+<!--<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>-->
+<!--<script>-->
+<!--  const ctx = document.getElementById('predictionChart').getContext('2d');-->
+<!--  const chart = new Chart(ctx, {-->
+<!--    type: 'bar',-->
+<!--    data: {-->
+<!--      labels: {{ top_birds | map(attribute=0) | list | tojson }},-->
+<!--      datasets: [{-->
+<!--        label: 'Confidence (%)',-->
+<!--        data: {{ top_birds | map(attribute=1) | list | tojson }},-->
+<!--        backgroundColor: 'rgba(76, 175, 80, 0.7)',-->
+<!--        borderColor: '#388e3c',-->
+<!--        borderWidth: 1,-->
+<!--        borderRadius: 5-->
+<!--      }]-->
+<!--    },-->
+<!--    options: {-->
+<!--      responsive: true,-->
+<!--      plugins: { legend: { display: false }},-->
+<!--      scales: {-->
+<!--        y: {-->
+<!--          beginAtZero: true,-->
+<!--          max: 100,-->
+<!--          ticks: { stepSize: 10 }-->
+<!--        }-->
+<!--      }-->
+<!--    }-->
+<!--  });-->
+<!--</script>-->
+<!--{% endblock %}-->
