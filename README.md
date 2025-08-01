@@ -9,6 +9,17 @@ This screenshot shows the prediction result of the Bird Recognition System. It d
 ![Prediction](Outputs/Picture2.png)
 
 
+The Following Screenshot displays the Top-5 prediction probabilities from the Bird Recognition System in bar chart format. It shows Darwin’s Nothura as the most likely species, with significantly higher confidence than others. The page also includes a location input for mapping sightings and navigation buttons for user interaction.
+
+![TopBirds](Outputs/Picture3.png)
+
+
+The Bird Recognition System also displays the region in which the Specific Bird Species are spoted using the MAP.
+
+![Map](Outputs/Picture5.png)
+
+
+Cheers and Happy Coding :)
 
 
 
