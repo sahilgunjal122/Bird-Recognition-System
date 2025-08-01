@@ -2,6 +2,6 @@ A deep learning-based application that identifies bird species from both images 
 Built with TensorFlow, PyTorch, and Librosa, and integrated into a Flask web app for real-time predictions. Trained on datasets like CUB-200, Xeno-Canto, and BirdCLEF.
 
 
-![Outputs].(Picture1.png)
+![Screenshot](Outputs/Picture1.png)
 
 
