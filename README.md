@@ -2,6 +2,13 @@ A deep learning-based application that identifies bird species from both images 
 Built with TensorFlow, PyTorch, and Librosa, and integrated into a Flask web app for real-time predictions. Trained on datasets like CUB-200, Xeno-Canto, and BirdCLEF.
 
 
-![Screenshot](Outputs/Picture1.png)
+![HomeScreen](Outputs/Picture1.png)
+
+This screenshot shows the prediction result of the Bird Recognition System. It displays the top predicted species (Darwin's Nothura) from an uploaded audio file, along with an image, audio playback, and detailed bird information all rendered via a Flask web interface.
+
+![Prediction](Outputs/Picture2.png)
+
+
+
 
 
